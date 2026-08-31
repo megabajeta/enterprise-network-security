@@ -163,7 +163,43 @@ The completed environment was tested by:
 
 ## Evidence
 
-Screenshots of the topology, routing, VLANs, ACLs, NAT/PAT, VPN, and security-validation results will be included in the `images` directory.
+## Lab Evidence
+
+### 1. Enterprise Network Topology
+
+The Packet Tracer topology includes headquarters, satellite, ISP, server, DMZ, access-layer, and core-network components.
+
+![Enterprise network topology](Images/01-network-topology.png)
+
+### 2. VLAN Segmentation
+
+The core switch separates management, employee, server, native/unused, and DMZ traffic using VLANs 10, 20, 30, 99, and 210.
+
+![VLAN segmentation](Images/02-Vlan-segmentation.png)
+
+### 3. 802.1Q Trunk Validation
+
+Interface GigabitEthernet1/0/3 operates as an 802.1Q trunk with VLAN 99 configured as the native VLAN. VLANs 10, 99, and 210 are allowed and forwarding.
+
+![802.1Q trunk validation](Images/03-8021q-trunk-validation.png)
+
+### 4. Spanning Tree Validation
+
+The core switch uses Per-VLAN Spanning Tree and operates as the root bridge for the default and DMZ spanning-tree instances. All active STP ports shown are in the forwarding state.
+
+![Spanning tree validation](Images/04-spanning-tree-validation.png)
+
+### 5. Layer 3 SVI Configuration
+
+Switched virtual interfaces are configured for the management, employee, and server VLANs. VLAN 10 is operational with an active Layer 3 interface.
+
+![Layer 3 SVI configuration](Images/05-layer3-svi-configuration.png)
+
+### 6. Satellite Gateway Connectivity
+
+The satellite endpoint uses IPv4 address `10.211.0.11/25` with gateway `10.211.0.1`. Four successful ICMP replies confirm local gateway connectivity with zero packet loss.
+
+![Satellite gateway connectivity](Images/06-satellite-gateway-connectivity.png)
 
 ## Security Notice
 
